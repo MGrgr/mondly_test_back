@@ -1,5 +1,8 @@
 module.exports = (sequelize, Sequelize) => {
-    const Mondly = sequelize.define("content", {
+    const Mondly = sequelize.define("contents", {
+      lang: {
+        type: Sequelize.STRING
+      },
       title: {
         type: Sequelize.STRING
       },
@@ -13,9 +16,6 @@ module.exports = (sequelize, Sequelize) => {
         type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.STRING
-      },
-      lang: {
         type: Sequelize.STRING
       }
     });
