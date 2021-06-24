@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+        database:
+            image: mysql:latest
+            restart: always
+            ports:
+                - 3306:3306
+            environment:
+                MYSQL_DATABASE: db
+                MYSQL_ROOT_PASSWORD: example
+        backend:
+            build:
+                context: .
+                dockerfile: Dockerfile
+            ports:
+                - "3001:3001"
+            command: ["./wait-for-db.sh"]
+            environment:
+                MYSQL_USER: root 
+                MYSQL_DATABASE: db
+                MYSQL_PASSWORD: example
