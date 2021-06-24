@@ -2,11 +2,12 @@
 
 module.exports = {
   up : function (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('content', [{
+    return queryInterface.bulkInsert('contents', [{
       lang : 'fr',
       title : 'title_fr',
       title_page : 'title page_fr',
       image: 'http://www.youloveit.ru/uploads/posts/2019-08/1565284946_red4.jpg',
+      paragraph: 'paragraph_fr',
       description : 'description_fr',
       createdAt : new Date(),
       updatedAt : new Date(),
@@ -14,7 +15,7 @@ module.exports = {
   },
 
   down : function (queryInterface, Sequelize) {
-    return queryInterface.bulkDelete('content'[{
+    return queryInterface.bulkDelete('contents'[{
       lang :'fr'
     }])
   }
