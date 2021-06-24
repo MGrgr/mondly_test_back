@@ -2,16 +2,19 @@ const { mondly: Mondly } = require('../models');
 
 module.exports = {
     update: async (req, res, next) => {
-        Mondly.update(req.body, { where: { id: 1 }})
-            .then(function () {
-                return res.send('success').code(200);
+        const lang = req.body.lang;
+        await Mondly.update(req.body.formState, { where: { lang }})
+            .then(function (data) {
+                return res.send('success');
             }).catch(function (err) {
-                return res.send(err).code(400);
+                err.statusCode = 400
+                return res.send(err);
             });
     },
 
     get: async (req, res, next) => {
-        const mondlies =  await Mondly.findAll();
+        const { lang } = req.query;
+        const mondlies =  await Mondly.findAll({where: {lang}});
         return res.send(mondlies);
     }
 }
