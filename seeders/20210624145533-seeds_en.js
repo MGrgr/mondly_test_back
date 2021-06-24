@@ -7,6 +7,7 @@ module.exports = {
       title : 'title',
       title_page : 'title page',
       image: 'http://www.youloveit.ru/uploads/posts/2019-08/1565284946_red4.jpg',
+      paragraph: 'paragraph',
       description : 'description',
       createdAt : new Date(),
       updatedAt : new Date(),
